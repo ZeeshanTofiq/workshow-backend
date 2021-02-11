@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-// Attach config.env file which have some important file 
+// Attach config.env file which have some important file
 dotenv.config({
     path: './config.env'
 });
@@ -20,7 +20,8 @@ mongoose
   .connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useUnifiedTopology: true
   })
   .then(() => console.log('DB connection successful!'))
   .catch(err=>{
@@ -28,7 +29,7 @@ mongoose
     console.log('Error in connection with db');
   })
 
-const port = process.env.port || 3000;
+const port = process.env.port || 5000;
 
 const server = app.listen(port, () => {
     console.log(`Workshow server running on port ${port}`);
